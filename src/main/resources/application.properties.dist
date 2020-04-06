@@ -1,0 +1,8 @@
+server.port=
+spring.datasource.password=
+spring.datasource.username=
+spring.datasource.url=
+spring.jpa.hibernate.ddl-auto=
+spring.jpa.show-sql=
+spring.jooq.sql-dialect=
+logging.level.web=

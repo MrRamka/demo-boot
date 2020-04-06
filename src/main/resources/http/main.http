@@ -1,0 +1,13 @@
+GET localhost/api/users-management/users
+
+###
+POST localhost/api/users-management/users
+Content-Type: application/json
+
+{
+  "username" : "Useasdrnssqewqame",
+  "fullName" : "notfullname",
+  "password": "sd7a9s8f79912879q7a9a9qwqaqq"
+}
+
+###

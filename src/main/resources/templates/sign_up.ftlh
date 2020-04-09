@@ -33,6 +33,7 @@
             <@spring.formPasswordInput  "form.password"/>
             <@spring.showErrors "<br>"/>
             <br>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
             <input type="submit" value="Registration">
         </form>
     </#if>

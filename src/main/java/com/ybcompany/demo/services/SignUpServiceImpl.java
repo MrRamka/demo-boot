@@ -1,9 +1,11 @@
 package com.ybcompany.demo.services;
 
 import com.ybcompany.demo.dto.SignUpDto;
+import com.ybcompany.demo.models.Role;
 import com.ybcompany.demo.models.User;
 import com.ybcompany.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -13,6 +15,9 @@ public class SignUpServiceImpl implements SignUpService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     /**
      * Saving user SignUpDto form
@@ -25,7 +30,8 @@ public class SignUpServiceImpl implements SignUpService {
                 .username(form.getUsername())
                 .fullName(form.getFullName())
                 .createdAt(LocalDateTime.now())
-                .password(form.getPassword())
+                .hashPassword(passwordEncoder.encode(form.getPassword()))
+                .role(Role.USER)
                 .build();
         userRepository.save(user);
     }

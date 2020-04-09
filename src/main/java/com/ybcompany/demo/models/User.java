@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
@@ -43,7 +44,14 @@ public class User {
     @NotNull
     @Length(min = 8)
     @Column(nullable = false)
-    private String password;
+    private String hashPassword;
+
+
+    /*
+     * Store string value
+     */
+    @Enumerated(value = EnumType.STRING)
+    private Role role;
 
 
     /*

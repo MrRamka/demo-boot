@@ -9,7 +9,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -79,7 +78,7 @@ public class UserServiceImpl implements UserService {
                 .username(userData.getUsername())
                 .fullName(userData.getFullName())
                 .createdAt(LocalDateTime.now())
-                .password(userData.getPassword())
+                .hashPassword(userData.getPassword())
                 .build();
         userRepository.save(user);
         return UserDto.from(user);
